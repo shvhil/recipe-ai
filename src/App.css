@@ -1,0 +1,100 @@
+:root {
+  --black: #000000;
+  --wo-gray: #d1d0d0;
+  --wo-pastel-brown: #988686;
+  --wo-dark-brown: #5c4e4e;
+}
+
+* {
+  font-family: "PP Neue Montreal";
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--wo-gray);
+}
+
+header {
+  padding: 1.5rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--black);
+  color: var(--wo-gray);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
+
+.header-logo {
+  width: 4rem;
+  z-index: 1;
+}
+
+.header-text {
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.add-ingredient-form {
+  display: flex;
+  justify-content: center;
+  padding: 6rem;
+  align-items: center;
+  height: 100px;
+  /* border: 1px solid gray; */
+  gap: 2rem;
+}
+
+.ingredient-input {
+  height: 40px;
+  min-width: 150px;
+  max-width: 500px;
+  flex-grow: 1;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.ingredient-submit-btn {
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  height: 40px;
+  min-width: 150px;
+  border: 1px dashed beige;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.ingredients-list-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 6rem;
+}
+
+.ingredients-list-subcontainer {
+  width: 682px;
+  min-width: 150px;
+  /* border: 3px dashed green; */
+}
+
+.ingredients-list-title {
+  font-size: 32px;
+  /* border: 1px solid blue; */
+}
+
+.ingredients-list {
+  padding: 1rem 2rem;
+  /* border: 1px solid blue; */
+}
+
+.ingredients-list > li {
+  font-size: 22px;
+  line-height: 40px;
+  font-weight: 400;
+  color: hsl(0, 0%, 25%);
+}
