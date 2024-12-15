@@ -1,18 +1,19 @@
-"use client"
 import { useState } from "react";
 import GetRecipe from "./GetRecipe"
+import IngredientsList from "./IngredientsList"
+import ClaudeRecipe from "./ClaudeRecipe"
 
 export default function Main() {
   const [ingredients, setIngredients] = useState([])
-
-  const ingredientsList = ingredients.map((item) => {
-    return <li key={item}> {item} </li>;
-  })
 
     function handleSubmit(formData) {
 	const newIngredient = formData.get("new-ingredient");
 	setIngredients((addIngredient) => [...addIngredient, newIngredient]);
   }
+    const [showSuggestions, setShowSuggestions] = useState(false)
+    function toggleClaude() {
+	setShowSuggestions( prevShow => !prevShow )
+    }
 
   return (
     <main>
@@ -22,20 +23,16 @@ export default function Main() {
           aria-label="Add Ingredient"
           placeholder="eg. oregano"
           name="new-ingredient"
+	  autoFocus
+	  required
         />
         <button className="ingredient-submit-btn btn">
           + Add Ingredient
         </button>
       </form>
-      <div className="ingredients-list-container">
-        <div className="ingredients-list-subcontainer">
-          <h2 className="ingredients-list-title">
-            {ingredients.length ? "Ingredients Added": undefined}
-          </h2>
-          <ul className="ingredients-list"> {ingredientsList} </ul>
-      {ingredients.length > 3 ? <GetRecipe /> : undefined }
-        </div>
-      </div>
-    </main>
+      <IngredientsList items={ingredients} />
+      {ingredients.length > 3 ? <GetRecipe showSuggests={toggleClaude}/> : undefined }
+      {showSuggestions ? <ClaudeRecipe /> : undefined}
+   </main>
   );
 }
